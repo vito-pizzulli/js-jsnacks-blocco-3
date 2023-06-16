@@ -2,13 +2,19 @@
     <navbar id="header-navbar">
         <h1>My Ugly Navbar</h1>
         <ul>
-            <li v-for="link in links"><a :href="link.link">{{ link.name }}</a></li>
+            <NavLink v-for="link in links" 
+                :navElement="link"
+            />
         </ul>
     </navbar>
 </template>
 <script>
+import NavLink from './NavLink.vue';
 export default {
     name: 'AppHeader',
+    components: {
+        NavLink
+    },
     data() {
             return {
                 links: [
